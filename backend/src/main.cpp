@@ -3,6 +3,7 @@
 #include "User.h"
 #include "Order.h"
 #include "RandomSelector.h"
+#include "DBOperations.h"
 
 int main() {
     Canteen canteen1("Canteen 1");
@@ -24,6 +25,22 @@ int main() {
     } catch (const std::runtime_error &e) {
         std::cerr << e.what() << std::endl;
     }
+
+    DBOperations dbOps;
+
+    // Fetch and display all canteens
+    auto canteens = dbOps.fetchAllCanteens();
+    for (const auto& canteen : canteens) {
+        std::cout << "Canteen ID: " << canteen[0] << ", Name: " << canteen[1] << std::endl;
+    }
+
+    // Fetch and display stalls for a specific canteen
+    int canteen_id = 1; // Example canteen_id
+    auto stalls = dbOps.fetchStallsByCanteen(canteen_id);
+    for (const auto& stall : stalls) {
+        std::cout << "Stall ID: " << stall[0] << ", Name: " << stall[1] << std::endl;
+    }
+
 
     return 0;
 }
