@@ -1,4 +1,4 @@
-// backend/include/DBOperations.h
+// 数据库处理
 #ifndef DBOPERATIONS_H
 #define DBOPERATIONS_H
 
@@ -16,4 +16,4 @@ private:
     DBConnection db;
 };
 
-#endif // DBOPERATIONS_H
+#endif 

@@ -18,4 +18,4 @@ private:
     void executeQuery(const std::string& query);
 };
 
-#endif // DATALOADER_H
+#endif 

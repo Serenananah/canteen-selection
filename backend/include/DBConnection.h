@@ -1,4 +1,4 @@
-// backend/include/DBConnection.h
+//数据库连接
 #ifndef DBCONNECTION_H
 #define DBCONNECTION_H
 
@@ -6,6 +6,8 @@
 #include <mysql_connection.h>
 #include <cppconn/statement.h>
 #include <cppconn/resultset.h>
+#include <cppconn/exception.h>
+#include <cppconn/prepared_statement.h>
 
 class DBConnection {
 public:

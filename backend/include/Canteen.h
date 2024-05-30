@@ -17,4 +17,4 @@ private:
     std::vector<Stall> stalls;
 };
 
-#endif // CANTEEN_H
+#endif 

@@ -1,3 +1,4 @@
+//档口
 #ifndef STALL_H
 #define STALL_H
 
