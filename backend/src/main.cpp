@@ -3,26 +3,33 @@
 #include "User.h"
 #include "Order.h"
 #include "RandomSelector.h"
-#include "DBOperations.h"
+#include "../utils/RandomSelector.h"
 
 int main() {
+    // 创建食堂和菜品
     Canteen canteen1("Canteen 1");
     Stall stall1("Stall 1");
-    Dish dish1("Dish 1", 10.0, "Chinese");
-    Dish dish2("Dish 2", 12.0, "Chinese");
-
-    stall1.addDish(dish1);
-    stall1.addDish(dish2);
+    stall1.addDish(Dish("Dish 1", "Chinese", 12.5));
+    stall1.addDish(Dish("Dish 2", "Western", 15.0));
+    stall1.addDish(Dish("Dish 3", "Chinese", 8.0));
     canteen1.addStall(stall1);
 
-    User user("Alice");
-    Order order(user.getName());
+    Canteen canteen2("Canteen 2");
+    Stall stall2("Stall 2");
+    stall2.addDish(Dish("Dish 4", "Chinese", 10.0));
+    stall2.addDish(Dish("Dish 5", "Western", 20.0));
+    stall2.addDish(Dish("Dish 6", "Japanese", 25.0));
+    canteen2.addStall(stall2);
+
+    std::vector<Canteen> canteens = {canteen1, canteen2};
+    RandomSelector wheel(canteens);
 
     try {
-        Dish randomDish = RandomSelector::selectRandomDish(stall1.getDishes(), 5.0, 15.0, "Chinese");
-        order.addDish(randomDish);
-        std::cout << "Random dish selected: " << randomDish.getName() << std::endl;
-    } catch (const std::runtime_error &e) {
+        Dish randomDish = wheel.spin(10.0, 20.0, "Chinese");
+        std::cout << "Randomly selected dish: " << randomDish.getName() 
+                  << " (" << randomDish.getCategory() << ") - " 
+                  << randomDish.getPrice() << " RMB" << std::endl;
+    } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
 

@@ -1,16 +1,16 @@
-#include "Dish.h"
+#include "../include/Dish.h"
 
-Dish::Dish(const std::string &name, double price, const std::string &cuisine) 
-    : name(name), price(price), cuisine(cuisine) {}
+Dish::Dish(const std::string& name, const std::string& category, double price) 
+    : name(name), category(category), price(price) {}
 
-std::string Dish::getName() const {
+const std::string& Dish::getName() const {
     return name;
+}
+
+const std::string& Dish::getCategory() const {
+    return category;
 }
 
 double Dish::getPrice() const {
     return price;
-}
-
-std::string Dish::getCuisine() const {
-    return cuisine;
 }

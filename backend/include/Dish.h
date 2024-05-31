@@ -5,15 +5,15 @@
 
 class Dish {
 public:
-    Dish(const std::string &name, double price, const std::string &cuisine);
-    std::string getName() const;
+    Dish(const std::string& name, const std::string& category, double price);
+    const std::string& getName() const;
+    const std::string& getCategory() const;
     double getPrice() const;
-    std::string getCuisine() const;
     
 private:
     std::string name;
     double price;
-    std::string cuisine;
+    std::string category;
 };
 
 #endif 

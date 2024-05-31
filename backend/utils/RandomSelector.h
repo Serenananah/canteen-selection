@@ -2,11 +2,17 @@
 #define RANDOMSELECTOR_H
 
 #include <vector>
-#include "Dish.h"
+#include <string>
+#include "../include/Dish.h"
+#include "../include/Canteen.h"
 
 class RandomSelector {
 public:
-    static Dish selectRandomDish(const std::vector<Dish> &dishes, double minPrice, double maxPrice, const std::string &cuisine);
+    RandomSelector(std::vector<Canteen>& canteens);
+    Dish spin(double minPrice, double maxPrice, const std::string& category = "");
+
+private:
+    std::vector<Canteen>& canteens;
 };
 
 #endif // RANDOMSELECTOR_H
