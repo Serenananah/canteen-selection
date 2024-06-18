@@ -1,5 +1,5 @@
 // backend/src/DBOperations.cpp
-#include "DBOperations.h"
+#include "../include/DBOperation.h"
 #include <cppconn/prepared_statement.h>
 
 DBOperations::DBOperations() : db() {}
