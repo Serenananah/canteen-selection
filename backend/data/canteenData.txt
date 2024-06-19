@@ -1,3 +1,0 @@
-1,Main Canteen
-2,Second Canteen
-3,Third Canteen
