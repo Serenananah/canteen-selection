@@ -6,7 +6,7 @@
 #include <iostream>
 
 // 构造函数，初始化随机数种子
-RandomSelector::RandomSelector(DBOperations& pdbOps):dbOps(pdbOps){
+RandomSelector::RandomSelector(DBOperations& pdbOps) : dbOps(pdbOps) {
     srand(time(0));
 }
 
